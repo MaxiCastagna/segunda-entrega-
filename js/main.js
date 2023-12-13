@@ -21,16 +21,23 @@ function mostarCamisetas(camisetas){
     camisetas.forEach( (camiseta) => {
         let respuesta = document.querySelector("ul");
         respuesta.innerHTML += `
-              <li>${camiseta.marca}  -  ${camiseta.equipo} -  ${auto.year}  - ${camiseta.jugador} Puertas - Transmision ${camiseta.talle} - Precio ${camiseta.precio} }</li>        
+              ${camiseta.marca}  -  ${camiseta.equipo} -  ${auto.year}  - ${camiseta.jugador} Jugador - Tralle ${camiseta.talle} - Precio ${camiseta.precio}        
         `;
         console.log(`
-              ${camiseta.marca}  -  ${camiseta.equipo} -  ${camiseta.year}  - ${camiseta.jugador} Puertas - Transmision ${camiseta.talle} - Precio ${camiseta.precio}       
+              ${camiseta.marca}  -  ${camiseta.equipo} -  ${camiseta.year}  - ${camiseta.jugador} Jugador - Talle ${camiseta.talle} - Precio ${camiseta.precio}       
         `);
     });
 }
 function filtrarMarca(auto) {
     if (datosBusqueda.marca) {
       return auto.marca === datosBusqueda.marca;
+    } else {
+      return auto;
+    }
+  }
+  function filtrarEquipo(auto) {
+    if (datosBusqueda.equipo) {
+      return auto.equipo === datosBusqueda.equipo;
     } else {
       return auto;
     }
@@ -73,17 +80,13 @@ function filtrarMarca(auto) {
   function filtrarCamisetas() {
     const resultado = camisetas
       .filter(filtrarMarca)
+      .filter(filtrarEquipo)
       .filter(filtrarYear)
       .filter(filtrarMinimo)
       .filter(filtrarMaximo)
       .filter(filtrarJugador)
       .filter(filtrarTalle)
-      
-    if (resultado.length > 0) {
-      mostrarCamisetas(resultado);
-    } else {
-      alert("No hay en stock");
-    }
-  }
-  
+      console.log(resultado)
+   
+}
   filtrarCamisetas();
