@@ -21,7 +21,7 @@ function mostarCamisetas(camisetas){
     camisetas.forEach( (camiseta) => {
         let respuesta = document.querySelector("ul");
         respuesta.innerHTML += `
-              ${camiseta.marca}  -  ${camiseta.equipo} -  ${auto.year}  - ${camiseta.jugador} Jugador - Tralle ${camiseta.talle} - Precio ${camiseta.precio}        
+              <li>${camiseta.marca}  -  ${camiseta.equipo} -  ${auto.year}  - ${camiseta.jugador} Jugador - Tralle ${camiseta.talle} - Precio ${camiseta.precio}<li/>        
         `;
         console.log(`
               ${camiseta.marca}  -  ${camiseta.equipo} -  ${camiseta.year}  - ${camiseta.jugador} Jugador - Talle ${camiseta.talle} - Precio ${camiseta.precio}       
